@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>基本使用</title>
+<meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'>
+<style type="text/css">
+
+svg {
+  border: 1px solid #111;
+}
+/* 所有的 SVG 外观属性都可以作为 CSS 属性使用。参考：https://developer.mozilla.org/zh-CN/docs/Web/SVG/Attribute */
+circle {
+	fill: transparent;
+}
+path {
+    stroke: #fff; 
+ 	stroke-width: 3;
+    animation: colorAnimate 3s infinite; 
+}
+
+/* SVG 有原生的动画属性，但也可以使用 CSS 动画 */
+@-webkit-keyframes colorAnimate {
+  to {
+    stroke: red;
+  }
+}
+</style>
+</head>
+
+<body>
+<!-- SVG默认大小300*150 可以直接在元素属性中设置宽高，单位px -->
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width=220 height=220>
+  <circle cx="110" cy="110" r="100" stroke="green" stroke-width="2"/>
+  <path id='path' d='M 110 110 L 110 10 z'>
+</svg>
+
+</body>
+
+</html>
