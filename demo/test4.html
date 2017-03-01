@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>SVG-path</title>
+<meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'>
+<style type="text/css">
+svg {
+  border: 1px solid #333;
+  display: block;
+  margin: 20px;
+}
+path {
+   fill: transparent;
+   stroke: black;
+   stroke-width: 1;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 
+关于 path 参数的解释
+MDN：https://developer.mozilla.org/zh-CN/docs/Web/SVG/Tutorial/Paths
+张鑫旭：http://www.zhangxinxu.com/wordpress/2014/06/deep-understand-svg-path-bezier-curves-command/
+
+<path> 标签用来定义路径。
+下面的命令可用于路径数据：
+M = moveto
+L = lineto // 直线命令
+H = horizontal lineto // 直线命令
+V = vertical lineto // 直线命令
+
+C = curveto // 曲线命令 三次贝塞尔曲线C
+S = smooth curveto // 曲线命令 一般跟在C后边使用
+  
+Q = quadratic Belzier curve // 曲线命令 二次贝塞尔曲线Q
+T = smooth quadratic Belzier curveto // Q命令或者T命令的延长
+
+
+A = elliptical Arc // 弧形命令A
+
+Z = closepath
+注释：以上命令均允许小写字母。大写表示绝对定位，小写表示相对定位。(Z命令不用区分大小写)
+-->
+测试绝对定位:相对于父元素的位置
+<svg xmlns="http://www.w3.org/2000/svg" width=100 height=100>
+	<path
+      d='
+      M 10, 50
+      L 30, 30
+      L 50, 50
+      Z
+     ' >
+</svg>
+
+测过相对定位:相对于现在的位置
+<svg xmlns="http://www.w3.org/2000/svg" width=100 height=100>
+	<path
+      d='
+      M 50, 50
+      l -30, 0
+      l 0, 30
+      Z
+     ' >
+</svg>
+
+测过viewBox:
+SVG就像是我们的显示器屏幕，viewBox就是截屏工具选中的那个框框，最终的呈现就是把框框中的截屏内容再次在显示器中全屏显示！
+<br>
+关于 SVG viewport和viewBox的详解
+张鑫旭：http://www.zhangxinxu.com/wordpress/2014/08/svg-viewport-viewbox-preserveaspectratio/
+
+<svg xmlns="http://www.w3.org/2000/svg" width=100 height=100 viewBox='0 0 50 50'>
+	<path
+      d='
+      M 10, 50
+      L 30, 30
+      L 50, 50
+      Z
+     ' >
+</svg>
+
+<hr>
+测过C命令
+C命令可通过该网址获得预期曲线的点参考坐标比例：http://cubic-bezier.com/
+<svg width="190px" height="160px" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <!-- .11,.88,.87,.05 -->
+  <circle cx="11" cy="88" r="2" fill='red'/>
+  <circle cx="34" cy="91" r="2" fill='red'/>
+  <path d="M0 0 C11 88, 34 91, 100 100" stroke="black" fill="transparent"/>
+  <path d="M0 0 L100 100" stroke="black" fill="transparent"/>
+</svg>
+
+<hr>
+测过S命令
+<svg width="200px" height="200px" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <!-- .11,.88,.87,.05 -->
+  <circle cx="11" cy="88" r="2" fill='red'/>
+  <circle cx="34" cy="91" r="2" fill='red'/>
+  <circle cx="166" cy="109" r="2" fill='red'/>
+  <circle cx="189" cy="112" r="2" fill='red'/>
+  <path d="M 0 0 
+          C 11 88, 34 91, 100 100 
+          S 189 112, 200 200
+          " stroke="black" fill="transparent"/>
+  <path d="M0 0 L200 200" stroke="black" fill="transparent"/>
+</svg>
+
+上方和下方的这个例子可以看到S跟在C后边时，会自动计算出前方C命令的第二个点的对称的点，作为三阶贝塞尔曲线的第一个参照点，那么S自己写的第一个点相当于C命令中的第二个点，所以上下两种方法会得出相同的曲线
+<svg width="200px" height="200px" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <!-- .11,.88,.87,.05 -->
+  <circle cx="11" cy="88" r="2" fill='red'/>
+  <circle cx="34" cy="91" r="2" fill='red'/>
+  <circle cx="166" cy="109" r="2" fill='red'/>
+  <circle cx="189" cy="112" r="2" fill='red'/>
+  <path d="M 0 0 
+          C 11 88, 34 91, 100 100 
+          C 166 109, 189 112, 200 200
+          " stroke="black" fill="transparent"/>
+  <path d="M0 0 L200 200" stroke="black" fill="transparent"/>
+</svg>
+
+<hr>
+曲线根据参照点的设置也可以得到直线，如下方五个例子
+<svg xmlns='http://www.w3.org/2000/svg' version='1.1' width=100 height=100>
+  <path d='M0 0, L100 100'></path>
+</svg>
+
+<svg xmlns='http://www.w3.org/2000/svg' version='1.1' width=100 height=100>
+  <path d='M0 0, C 25 25, 90 90, 100 100'></path>
+</svg>
+
+<svg xmlns='http://www.w3.org/2000/svg' version='1.1' width=100 height=100>
+  <path d='M0 0, S 90 90, 100 100'></path>
+</svg>
+
+<svg xmlns='http://www.w3.org/2000/svg' version='1.1' width=100 height=100>
+  <path d='M0 0, Q 90 90, 100 100'></path>
+</svg>
+
+<svg xmlns='http://www.w3.org/2000/svg' version='1.1' width=100 height=100>
+  <path d='M0 0, T 100 100'></path>
+</svg>
+
+<hr>
+
+事实证明单独的S命令使用跟Q命令的效果并不一样，只是用法上都是需要一个参照点一个目标点罢了
+<svg xmlns='http://www.w3.org/2000/svg' version='1.1' width=100 height=100>
+  <path d='M0 0, C 0 100, 100 100, 100 0' style='stroke: green;'></path>
+  <path d='M0 0, S 50 100, 100 0' style='stroke: red;'></path>
+  <path d='M0 0, Q 50 100, 100 0' style='stroke: blue;'></path>
+</svg>
+
+</body>
+
+</html>

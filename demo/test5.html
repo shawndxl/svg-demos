@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>SVG-动画</title>
+<meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'>
+</head>
+
+<body>
+<svg style='display: none' xmlns='http://www.w3.org/2000/svg' version='1.1'
+   width='100' height='160' 
+   viewBox='0 0 10 16'>
+    
+  <g id='c'>
+    <path fill='#aaa' d='M 0 0, l 5 3 ,v 5, l -5 -3 z'/>
+    <path fill='#333' d='M10 0, l -5 3, v 5, l 5, -3'/>
+  </g>
+  <use x='5' y='8' xlink:href='#c' />
+  <use x='-5' y='8' xlink:href='#c' />
+</svg>
+</body>
+<script type="text/javascript">
+var svg = document.querySelector('svg').outerHTML;
+document.body.style.backgroundImage = 'url(data:image/svg+xml;base64,' + btoa(svg) + ')';
+</script>
+</html>
