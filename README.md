@@ -14,6 +14,46 @@ SVG 文件是一个基于 XML 的 W3C标准，能够跟 W3C 及其他的标准�
 
 假如我们需要一个 loading 的图片，这张图片将用在从大到小各种尺寸上，那么图片尺寸太小的话则放大后失真，太大了又占用流量，loading 图标结构很简单，能否像我们用 CSS 设计一个 div 一样设计一张图片，能够放大缩小又不失真？这就是 SVG 能够轻易做到的。
 
+An SVG can be embedded in any of the following ways:
+
+1) as an image using the < img > tag:
+
+```html
+<img src="mySVG.svg" alt="" />
+```
+
+2) as a background image in CSS:
+
+```css
+.element { background-image: url(mySVG.svg); }
+```
+
+3) as an object using the < object > tag:
+
+```html
+<object type="image/svg+xml" data="mySVG.svg"><!-- fallback here --></object>
+```
+
+4) as an iframe using an < iframe > tag:
+
+```html
+<iframe src="mySVG.svg"><!-- fallback here --></iframe>
+```
+
+5) using the < embed > tag:
+
+```html
+<embed type="image/svg+xml" src="mySVG.svg" />
+```
+
+6) inline using the < svg > tag:
+
+```html
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+<!-- svg content -->
+</svg>
+```
+
 [3、基本形状](./demo/test3.html)
 
 矩形、圆形、椭圆、线条、折线、多边形、路径
@@ -28,3 +68,6 @@ SVG 文件是一个基于 XML 的 W3C标准，能够跟 W3C 及其他的标准�
 * [MDN-SVG](https://developer.mozilla.org/zh-CN/docs/Web/SVG)
 * [MDN-path](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Tutorial/Paths)
 * [W3C标准-SVG](https://www.w3.org/Graphics/SVG/)
+* [SVG 的几种用法详解及对比](https://www.smashingmagazine.com/2014/11/styling-and-animating-svgs-with-css/#style-cascades)
+* [已经 dead 的旧用法 - SMIL](https://css-tricks.com/guide-svg-animations-smil/)
+* [新用法 - SMIL 的替换用法](https://css-tricks.com/smil-is-dead-long-live-smil-a-guide-to-alternatives-to-smil-features/)

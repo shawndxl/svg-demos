@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>SVG - g/use</title>
+<meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'>
+<style type="text/css">
+svg {
+	border: 1px solid black;
+}
+#hel { /* 比如border、width、height等对g没有作用,但svg的外观属性有用，且在使用css动画上也有所区别，具体使用时慢慢发现吧 */
+	animation: toleft 2s linear alternate infinite;
+	stroke: green; 
+	fill: transparent;
+	stroke-width: 5;
+}
+circle { /* use的circle也继承了样式 */
+	stroke: blue;
+}
+@-webkit-keyframes toleft {
+	to {
+		stroke-width: 2;
+	}
+}
+</style>
+</head>
+
+<body>
+
+<svg width="100%" height="100%" viewBox="0 0 95 70"
+     xmlns="http://www.w3.org/2000/svg">
+  <g id='hel'>
+    <circle id='c' cx="25" cy="25" r="15" />
+    <text></text>
+	<use x=15 y=0 xlink:href='#c'/>
+	<use x='30' y=0 xlink:href='#c'/>
+	<use x=45 y=0 xlink:href='#c'/>
+  </g>
+  
+  <use y=15 xlink:href='#hel'>
+</svg>
+
+</body>
+
+</html>
