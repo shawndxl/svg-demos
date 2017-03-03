@@ -62,12 +62,22 @@ An SVG can be embedded in any of the following ways:
 
 <path> 元素/路径可能是SVG中最常见的，也是基本形状中最强大的一个，你可以用path元素绘制矩形（直角矩形或者圆角矩形）、圆形、椭圆、折线形、多边形，以及一些其他的形状，例如贝塞尔曲线、2次曲线等曲线。
 
+[5、转换成base64作为背景](./demo/test5.html)
+
+[6、g/use](./demo/test6.html)
+
+[7、SVG 动画](./demo/test7.html)
+
+> [张鑫旭 - SMIL](http://www.zhangxinxu.com/wordpress/2014/08/so-powerful-svg-smil-animation/)
+> [SVG 的几种用法详解及对比](https://www.smashingmagazine.com/2014/11/styling-and-animating-svgs-with-css/#style-cascades)
+> [已经 dead 的旧用法 - SMIL](https://css-tricks.com/guide-svg-animations-smil/)
+> [新用法 - SMIL 的替换用法](https://css-tricks.com/smil-is-dead-long-live-smil-a-guide-to-alternatives-to-smil-features/)
+
+
 参考资料
 ---------
 
 * [MDN-SVG](https://developer.mozilla.org/zh-CN/docs/Web/SVG)
 * [MDN-path](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Tutorial/Paths)
 * [W3C标准-SVG](https://www.w3.org/Graphics/SVG/)
-* [SVG 的几种用法详解及对比](https://www.smashingmagazine.com/2014/11/styling-and-animating-svgs-with-css/#style-cascades)
-* [已经 dead 的旧用法 - SMIL](https://css-tricks.com/guide-svg-animations-smil/)
-* [新用法 - SMIL 的替换用法](https://css-tricks.com/smil-is-dead-long-live-smil-a-guide-to-alternatives-to-smil-features/)
+
