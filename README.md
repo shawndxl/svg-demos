@@ -73,6 +73,7 @@ An SVG can be embedded in any of the following ways:
 * [已经 dead 的旧用法 - SMIL](https://css-tricks.com/guide-svg-animations-smil/)
 * [新用法 - SMIL 的替换用法](https://css-tricks.com/smil-is-dead-long-live-smil-a-guide-to-alternatives-to-smil-features/)
 
+[8、SVG矩阵动画](https://www.villainhr.com/page/2017/05/01/SVG%20%E5%8A%A8%E7%94%BB%E7%B2%BE%E9%AB%93?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io&from=timeline)
 
 参考资料
 ---------
@@ -80,4 +81,3 @@ An SVG can be embedded in any of the following ways:
 * [MDN-SVG](https://developer.mozilla.org/zh-CN/docs/Web/SVG)
 * [MDN-path](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Tutorial/Paths)
 * [W3C标准-SVG](https://www.w3.org/Graphics/SVG/)
-
