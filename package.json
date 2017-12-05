@@ -1,11 +1,11 @@
 {
 	"name": "svg-demos",
-	"description": "JS排序算法",
+	"description": "",
 	"version": "0.0.1",
 	"dependencies": {},
 	"devDependencies": {},
 	"scripts": {
-		"debug": "fis3 server start -p 8086 && fis3 release -wL"
+		"dev": "fis3 server start -p 8086 && fis3 release -wL"
 	},
 	"licence": "MIT"
 }
