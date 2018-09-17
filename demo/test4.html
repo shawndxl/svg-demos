@@ -32,11 +32,11 @@ L = lineto // 直线命令
 H = horizontal lineto // 直线命令
 V = vertical lineto // 直线命令
 
-C = curveto // 曲线命令 三次贝塞尔曲线C
-S = smooth curveto // 曲线命令 一般跟在C后边使用
+C = curveto // 曲线命令 三次贝塞尔曲线C 需要三个点
+S = smooth curveto // 曲线命令 一般跟在C后边使用 需要两个点
   
-Q = quadratic Belzier curve // 曲线命令 二次贝塞尔曲线Q
-T = smooth quadratic Belzier curveto // Q命令或者T命令的延长
+Q = quadratic Belzier curve // 曲线命令 二次贝塞尔曲线Q 有两个点
+T = smooth quadratic Belzier curveto // Q命令或者T命令的延长 一个点
 
 
 A = elliptical Arc // 弧形命令A
@@ -84,11 +84,14 @@ SVG就像是我们的显示器屏幕，viewBox就是截屏工具选中的那个�
 
 <hr>
 测试C命令
-C命令可通过该网址获得预期曲线的点参考坐标比例：http://cubic-bezier.com/
+C命令可通过该网址获得预期曲线的点参考坐标比例：http://cubic-bezier.com/#.11,.88,.34,.91
 <svg width="190px" height="160px" version="1.1" xmlns="http://www.w3.org/2000/svg">
-  <!-- .11,.88,.87,.05 -->
+  <!-- .11,.88,.34,.91 -->
+  <!-- 参考点1 -->
   <circle cx="11" cy="88" r="2" fill='red'/>
+  <!-- 参考点2 -->
   <circle cx="34" cy="91" r="2" fill='red'/>
+  <!-- c 参考点1 参考点2 目标点 -->
   <path d="M0 0 C11 88, 34 91, 100 100" stroke="black" fill="transparent"/>
   <path d="M0 0 L100 100" stroke="black" fill="transparent"/>
 </svg>
@@ -104,7 +107,8 @@ C命令可通过该网址获得预期曲线的点参考坐标比例：http://cub
   <path d="M 0 0 
           C 11 88, 34 91, 100 100 
           S 189 112, 200 200
-          " stroke="black" fill="transparent"/>
+          " 
+        stroke="black" fill="transparent"/>
   <path d="M0 0 L200 200" stroke="black" fill="transparent"/>
 </svg>
 
@@ -120,6 +124,21 @@ C命令可通过该网址获得预期曲线的点参考坐标比例：http://cub
           C 166 109, 189 112, 200 200
           " stroke="black" fill="transparent"/>
   <path d="M0 0 L200 200" stroke="black" fill="transparent"/>
+</svg>
+
+<hr>
+另一种可用的贝塞尔曲线是二次贝塞尔曲线Q，它比三次贝塞尔曲线简单，只需要一个控制点，用来确定起点和终点的曲线斜率。因此它需要两组参数，控制点和终点坐标。
+<svg xmlns='http://www.w3.org/2000/svg' version='1.1' width='190px' height='160px'>
+  <circle cx="95" cy="10" r="2" fill='red'/>
+  <path d="M10 80 Q 95 10 180 80" stroke="black" fill="transparent"/>
+</svg>
+
+
+<hr>
+就像三次贝塞尔曲线有一个S命令，二次贝塞尔曲线有一个差不多的T命令，可以通过更简短的参数，延长二次贝塞尔曲线。
+<svg xmlns='http://www.w3.org/2000/svg' version='1.1' width='390px' height='160px'>
+  <circle cx="95" cy="10" r="2" fill='red'/>
+  <path d="M10 80 Q 95 10 180 80 T350 80" stroke="black" fill="transparent"/>
 </svg>
 
 <hr>
@@ -146,12 +165,30 @@ C命令可通过该网址获得预期曲线的点参考坐标比例：http://cub
 
 <hr>
 
-事实证明单独的S命令使用跟Q命令的效果并不一样，只是用法上都是需要一个参照点一个目标点罢了
+单独使用S命令 跟Q命令的效果并不一样
 <svg xmlns='http://www.w3.org/2000/svg' version='1.1' width=100 height=100>
   <path d='M0 0, C 0 100, 100 100, 100 0' style='stroke: green;'></path>
   <path d='M0 0, S 50 100, 100 0' style='stroke: red;'></path>
   <path d='M0 0, Q 50 100, 100 0' style='stroke: blue;'></path>
 </svg>
+
+<hr>
+A命令参数比较多，直接参考[MDN](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Tutorial/Paths)即可
+
+<br>
+A rx ry x-axis-rotation large-arc-flag sweep-flag x y
+<br>
+ a rx ry x-axis-rotation large-arc-flag sweep-flag dx dy
+<br>
+rx、ry: x轴半径和y轴半径
+<br>
+x-axis-rotation：x轴旋转角度（顺时针为正）
+<br>
+large-arc-flag：弧线是大于还是小于180度，0表示小角度弧，1表示大角度弧
+<br>
+sweep-flag：弧线的方向，0表示从起点到终点沿逆时针画弧，1表示从起点到终点沿顺时针画弧
+<br>
+x y: 本次A曲线的终点
 
 </body>
 

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'>
+<style type="text/css">
+	body {
+		background-color: #222;
+	}
+
+
+
+	/*.element { 
+  background-image: url(mySVG.svg); 
+}
+
+var svg = document.querySelector('svg').outerHTML;
+var div = document.getElementById('div');
+
+//div.style.backgroundImage = 'url(data:image/svg+xml;base64,' + btoa(svg) + ')';
+
+svg 当背景图的三种方式，当背景图能否使用动画
+div {
+  border: 1px solid red;
+  width: 500px;
+  height: 200px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='scale' width='250' height='250' viewBox='0 0 20 20'%3E%3Cg fill-opacity='1'%3E%3Cpolygon class='color2' fill='%23242' points='20 10 10 0 0 0 20 20'/%3E%3Cpolygon class='color2' fill='%23242' points='0 10 0 20 10 20'/%3E%3C/g%3E%3C/svg%3E");
+  
+ 
+}
+.d1 {
+   background-image: url('data:image/svg+xml;base64,PHN2ZyBpZD0ic3ZnIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxNjAiIHZpZXdCb3g9IjAgMCAxMCAxNiI+CiAgICAKICA8ZyBpZD0iYyI+CiAgICA8cGF0aCBmaWxsPSIjYWFhIiBkPSJNIDAgMCwgbCA1IDMgLHYgNSwgbCAtNSAtMyB6Ij48L3BhdGg+CiAgICA8cGF0aCBmaWxsPSIjMzMzIiBkPSJNMTAgMCwgbCAtNSAzLCB2IDUsIGwgNSwgLTMiPjwvcGF0aD4KICA8L2c+CiAgPHVzZSB4PSI1IiB5PSI4IiB4bGluazpocmVmPSIjYyI+PC91c2U+CiAgPHVzZSB4PSItNSIgeT0iOCIgeGxpbms6aHJlZj0iI2MiPjwvdXNlPgo8L3N2Zz4=');
+}
+
+*/
+
+    
+</style>
+
+</head>
+<body>
+	<!-- 
+	<path 
+  fill='white'
+  opacity=".25" 
+  d="M 16 0 
+	A 16 16 0 0 0 16 32 
+  	A 16 16 0 0 0 16 0 
+  	M 16 4 
+  	A 12 12 0 0 1 16 28 
+  	A 12 12 0 0 1 16 4"/>
+  	 -->
+<svg 
+xmlns="http://www.w3.org/2000/svg" version="1.1" 
+viewBox="0 0 32 32" 
+width="32" 
+height="32" 
+>
+
+  <path 
+  fill='white'
+  opacity='.25'
+  d="M 16 0 
+	A 16 16 0 0 0 16 32
+	A 16 16 0 0 0 16 0
+	M 16 4
+	A 12 12 0 0 1 16 28
+	A 12 12 0 0 1 16 4
+	"/>
+	<!-- 在同一笔中只有结束最后一个点才是结束 -->
+	<!-- m 到一个点是起点，z 是结束这一笔  但可以另起一点-->
+	<!-- path 不能纯在交叉的线，否则fill将会失效， A 12 12 0 0 1 16 28 中的1 才是精髓 -->
+	<path
+	fill='#fff'
+	d='M16 0
+	A 16 16 0 0 1 32 16
+	L 28 16
+	A 12 12 0 0 0 16 4
+	'
+
+	>
+		<animateTransform 
+		attributeName="transform" 
+		type="rotate" 
+		from="0 16 16" 
+		to="360 16 16" 
+		dur="0.8s" 
+		repeatCount="indefinite" 
+		/>
+	</path>
+
+</svg>
+
+
+<svg 
+width="640" 
+height="480" 
+xmlns="http://www.w3.org/2000/svg" 
+xmlns:svg="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>Layer 1</title>
+  <path stroke="#000000" id="svg_3" d="m298.55958,126.99954c1,0 65.22032,-41.43912 160.46271,-2.72081c95.24238,38.71831 96.27762,149.71079 96.27762,149.71079c0,0 47.62119,17.20813 -2.07049,33.55586c-49.69167,16.34773 -351.98271,6.88326 -356.12368,6.02285l-3.10573,-90.34272" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" fill="#0099ff"/>
+  <ellipse 
+  stroke="#000000" 
+  ry="54" rx="53" 
+  id="svg_5" 
+  cy="261" cx="211" 
+  stroke-linecap="null" 
+  stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" fill="#0099ff"/>
+  <ellipse stroke="#000000" ry="62.5" rx="76" id="svg_7" cy="186.5" cx="320" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" fill="#0099ff"/>
+  <g id="svg_13">
+   <ellipse ry="50" rx="50" id="svg_9" cy="301" cx="283" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" stroke="#000000" fill="#191919"/>
+   <ellipse ry="35" rx="35" id="svg_11" cy="301" cx="283" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" stroke="#000000" fill="#cccccc"/>
+
+   <ellipse 
+   transform="rotate(50 283 301)"
+   id='tyre1'
+   ry="10" rx="4" 
+   cx="283"  cy="285" 
+   stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" stroke="#000000" 
+   fill="#222"/>
+	
+	<use  
+	x="0" 
+	y="0" 
+	transform="rotate(90 283 301)"
+	xlink:href="#tyre1"/>   
+	<use  
+	x="0" 
+	y="0" 
+	transform="rotate(-90 283 301)"
+	xlink:href="#tyre1"/>   
+	<use  
+	x="0" 
+	y="0" 
+	transform="rotate(180 283 301)"
+	xlink:href="#tyre1"/>   
+
+   <animateTransform 
+		attributeName="transform" 
+		type="rotate" 
+		from="0 283 301" 
+		to="-360 283 301" 
+		dur="0.8s" 
+		repeatCount="indefinite" 
+		/>
+
+  </g>
+  <g id="svg_14">
+
+   <ellipse 
+   id="svg_15" ry="50" rx="50" cy="301" cx="473" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" stroke="#000000" 
+   fill="#191919"
+   >
+   	
+   </ellipse>
+   <ellipse ry="35" rx="35" cy="301" cx="473" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" stroke="#000000" fill="#cccccc"/>
+
+   <ellipse 
+   transform="rotate(45 473 301)"
+   id='tyre2'
+   ry="10" rx="4" 
+   cx="473"  cy="285" 
+   stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" stroke="#000000" 
+   fill="#222"/>
+	
+	<use  
+	x="0" 
+	y="0" 
+	transform="rotate(90 473 301)"
+	xlink:href="#tyre2"/>   
+	<use  
+	x="0" 
+	y="0" 
+	transform="rotate(-90 473 301)"
+	xlink:href="#tyre2"/>   
+	<use  
+	x="0" 
+	y="0" 
+	transform="rotate(180 473 301)"
+	xlink:href="#tyre2"/>   
+
+   <animateTransform 
+		attributeName="transform" 
+		type="rotate" 
+		from="0 473 301" 
+		to="-360 473 301" 
+		dur="0.8s" 
+		repeatCount="indefinite" 
+		/>
+  </g>
+ </g>
+</svg>
+
+</body>
+
+
+</html>
